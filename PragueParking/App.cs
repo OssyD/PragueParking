@@ -56,7 +56,7 @@ class App
 
         if (skipped > 0)
         {
-            File.Copy(dataPath, dataPath + ".bak", true);
+            FileHandler.Backup(dataPath);
             startupWarning = $"{skipped} fordon i datafilen kunde inte läsas in. En kopia sparades som parking.json.bak.";
         }
     }

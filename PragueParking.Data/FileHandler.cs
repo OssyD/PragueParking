@@ -4,15 +4,25 @@ public static class FileHandler
 {
     private static readonly JsonSerializerOptions options = new() { WriteIndented = true };
 
-    private const string DefaultPrices =
-        "# Prislista för Prague Parking\n" +
-        "# Skriv fordonstyp och pris i CZK per påbörjad timme.\n" +
-        "# Allt efter tecknet # på en rad är kommentarer.\n" +
-        "CAR 20\n" +
-        "MC 10\n" +
-        "\n" +
-        "# Så många minuter är parkeringen gratis\n" +
-        "FREE_MINUTES 10\n";
+    private static readonly string[] DefaultPrices =
+    [
+        "# Prislista för Prague Parking",
+        "# Skriv fordonstyp och pris i CZK per påbörjad timme.",
+        "# Allt efter tecknet # på en rad är kommentarer.",
+        "CAR 20",
+        "MC 10",
+        "",
+        "# Så många minuter är parkeringen gratis",
+        "FREE_MINUTES 10"
+    ];
+
+    public static void Backup(string path)
+    {
+        if (File.Exists(path))
+        {
+            File.Copy(path, path + ".bak", true);
+        }
+    }
 
     public static ConfigData ReadConfig(string path)
     {
@@ -56,7 +66,7 @@ public static class FileHandler
         catch (Exception ex) when (ex is JsonException or IOException)
         {
             Logger.Log($"Kunde inte läsa datafilen: {ex.Message}");
-            File.Copy(path, path + ".bak", true);
+            Backup(path);
             return [];
         }
     }
@@ -80,7 +90,7 @@ public static class FileHandler
         catch (Exception ex) when (ex is JsonException or IOException)
         {
             Logger.Log($"Kunde inte läsa kvittofilen: {ex.Message}");
-            File.Copy(path, path + ".bak", true);
+            Backup(path);
             return [];
         }
     }
@@ -96,11 +106,17 @@ public static class FileHandler
     {
         if (!File.Exists(path))
         {
-            File.WriteAllText(path, DefaultPrices);
+            using var writer = new StreamWriter(path);
+            foreach (var defaultLine in DefaultPrices)
+            {
+                writer.WriteLine(defaultLine);
+            }
         }
 
         var prices = new PriceData();
-        foreach (var line in File.ReadAllLines(path))
+        using var reader = new StreamReader(path);
+        string line;
+        while ((line = reader.ReadLine()) != null)
         {
             var text = line.Split('#')[0];
             var parts = text.Split(' ', StringSplitOptions.RemoveEmptyEntries);
