@@ -1,0 +1,8 @@
+# Prislista för Prague Parking
+# Skriv fordonstyp och pris i CZK per påbörjad timme.
+# Allt efter tecknet # på en rad är kommentarer.
+CAR 20
+MC 10
+
+# Så många minuter är parkeringen gratis
+FREE_MINUTES 10

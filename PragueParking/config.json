@@ -1,0 +1,8 @@
+{
+  "SpotCount": 100,
+  "SpotSize": 4,
+  "VehicleTypes": [
+    { "Name": "CAR", "Size": 4 },
+    { "Name": "MC", "Size": 2 }
+  ]
+}

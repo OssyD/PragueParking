@@ -1,0 +1,38 @@
+[
+  {
+    "Type": "CAR",
+    "RegNumber": "ABC123",
+    "Spot": 1,
+    "Arrival": "2026-10-18T08:30:00"
+  },
+  {
+    "Type": "MC",
+    "RegNumber": "KLM789",
+    "Spot": 2,
+    "Arrival": "2026-10-18T09:15:00"
+  },
+  {
+    "Type": "MC",
+    "RegNumber": "FTP666",
+    "Spot": 2,
+    "Arrival": "2026-10-18T09:40:00"
+  },
+  {
+    "Type": "CAR",
+    "RegNumber": "XYZ789",
+    "Spot": 5,
+    "Arrival": "2026-10-19T07:05:00"
+  },
+  {
+    "Type": "MC",
+    "RegNumber": "BBB222",
+    "Spot": 10,
+    "Arrival": "2026-10-19T10:20:00"
+  },
+  {
+    "Type": "CAR",
+    "RegNumber": "\u00C5\u00C4\u00D6123",
+    "Spot": 23,
+    "Arrival": "2026-10-19T11:00:00"
+  }
+]
