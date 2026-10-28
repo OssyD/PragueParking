@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="PragueParking.Data/PragueParking.Data.csproj" />
+  <Project Path="PragueParking.Tests/PragueParking.Tests.csproj" />
   <Project Path="PragueParking/PragueParking.csproj" />
 </Solution>

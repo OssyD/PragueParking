@@ -6,6 +6,7 @@ Objektorienterat konsolprogram för en valet parking, med Spectre.Console som gr
 
 - `PragueParking` - konsolprogrammet
 - `PragueParking.Data` - klassbibliotek för dataåtkomst (läsa och spara filer)
+- `PragueParking.Tests` - enhetstester med MSTest
 
 Klasser i `PragueParking`: `Vehicle` (med `Car` och `MC`), `ParkingSpot`, `ParkingGarage`, `PriceCalculator` och `App`.
 
@@ -44,3 +45,11 @@ dotnet run --project PragueParking
 ```
 
 Navigera i menyn med piltangenterna och Enter. Kör programmet i ett vanligt konsolfönster för att färger och meny ska visas rätt.
+
+## Tester
+
+Kör testerna i Visual Studio via Test Explorer, eller från en terminal:
+
+```
+dotnet test
+```
